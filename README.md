@@ -12,5 +12,38 @@ I have been exploring GraphQL as the most viable framework for a complex relatio
 4. psycopg2-binary==2.9.6
 5. python-dotenv==1.0.0
 
+### Settings.py imports
+```py
+  from pathlib import Path
+  from dotenv import load_dotenv
+  import os
+  load_dotenv()
+```
+
 ### Database Backend
-Postgres
+```py
+  DATABASES = {
+    'default': {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': os.environ.get('DB_NAME'),
+    'USER': os.environ.get('DB_USER'),
+    'PASSWORD': os.environ.get('DB_PASSWORD'),
+    'HOST': os.environ.get('DB_HOST'),
+    'PORT': '',
+    }
+  }
+```
+
+### Static Files
+```py
+  STATIC_URL = "/static/"
+  # Set the STATIC_ROOT setting to a valid filesystem path where Django can collect static files
+  STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
+
+  MEDIA_URL = '/media/'
+  MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
+
+  STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+  ]
+```
