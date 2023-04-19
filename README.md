@@ -12,8 +12,9 @@ I did modify the project as shared by Dane using some of my own best-practices. 
 ### Requirements.txt 
 
 <p>
-I recycled the `venv` for this workbook so there are a few dependencies listed that are not necessary. I did not use relay or six or sqlparse or the like for this workbook.
-</p>
+A few of these came through with other packages. The important packages to reference here are: </p>
+
+`python-dotenv`, `psycopg2-binary` and `graphene-django`
 
 1. aniso8601==9.0.1
 1. asgiref==3.6.0
